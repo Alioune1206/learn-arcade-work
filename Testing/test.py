@@ -1,0 +1,5 @@
+print("Hello World")
+print("It was a dark stormy night.")
+print("Suddenly a shot rang out!")
+print("Hi! This is a double quote mark: \" We use it for printing.")
+print("Audrey Hepburn once said \"Nothing is impossible. The word itself says 'I'm Possible!'.\"")
