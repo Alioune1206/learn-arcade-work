@@ -40,7 +40,7 @@ arcade.draw_rectangle_filled(300, 320, 20, 60, arcade.csscolor.SIENNA)
 arcade.draw_arc_filled(300, 340, 60, 100, arcade.csscolor.DARK_GREEN, 0, 180)
 
 # Another tree, with a trunk and triangle for top
-# Triangle is made of these three points:
+# Triangle  is made of these three points:
 # (400, 400), (370, 320), (430, 320)
 arcade.draw_rectangle_filled(400, 320, 20, 60, arcade.csscolor.SIENNA)
 arcade.draw_triangle_filled(400, 400, 370, 320, 430, 320, arcade.csscolor.DARK_GREEN)
