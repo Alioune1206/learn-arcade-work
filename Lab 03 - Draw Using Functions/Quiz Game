@@ -1,0 +1,10 @@
+Polution = int(input("How much polution is there? "))
+if Polution > 90:
+    print("Wow, that's dirty!")
+elif Polution > 110:
+    print("What happened to save the turtles?")
+elif Polution < 30:
+    print("Almost clean!")
+else:
+    print("Just a bit.")
+print("Done")
