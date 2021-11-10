@@ -1,0 +1,64 @@
+x = 0
+
+print("Welcome to my quiz game! It consists of 6 questions. for every question you get right you gain a point, vise versa.:)")
+
+polution = int(input("Question 1.     How much polution is there? "))
+if polution > 90:
+    print("Wow, that's dirty!")
+    x += 1
+elif polution > 110:
+    print("What happened to save the turtles?")
+    x += 1
+elif polution < 30:
+    print("Almost clean!")
+    x += 1
+else:
+    print("Just a bit.")
+print("Done! See how easy that was? Now lets get to the real questions. >:)")
+
+user_name = input("Question 2.     What is your name?")
+if user_name == "Andy":
+    print("Your help would be appreciated")
+    x += 1
+else:
+    print("You are not needed.")
+age = int(input("Question 3.     How old are you?"))
+if age == 14:
+    print("Just right. Don't take that the wrong way.")
+    x += 1
+elif age > 14:
+    print("How old can you get?")
+    x -= 1
+elif age < 14:
+    print("Why are you here?")
+else:
+    print("Just stop. Now you lose 2 points for that.")
+
+battery = int(input("Question 4.    What percentage is my battery? Don't add the %."))
+if battery > 50:
+    print("It's alright")
+    x += 1
+elif battery < 10:
+    print("Pass your charger")
+    x += 1
+else:
+    print("Ok")
+    x += 1
+
+hobby = input("Question 5.    What are some of your hobbies?")
+if hobby == "Gaming":
+    print("I'm gonna need your number. Pause.")
+    x += 1
+elif hobby == "Sports":
+    print("Better not be soccer")
+else:
+    print("Your useless.")
+
+favorite_candy = input("Question 6.     What is the best candy brand?     A. Skittles     B. Milky way     C. Kit Kat")
+if favorite_candy.lower() == "a":
+    print('Me too!')
+    x += 1
+else:
+    print('Skittles are the best!')
+
+print('Nice Job! You got', x, 'questions correct!')
