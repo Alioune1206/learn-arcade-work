@@ -1,82 +1,65 @@
-"""
-This is a sample program to show how to draw using the Python programming
-language and the Arcade library.
-"""
+import random
 
-# Import the "arcade" library
-import arcade
+print("Welcome to the game, 'Killers Who Practice Cardio!' Here is a brief introduction to this game:")
+print('You are a mage who is the target of a pair of assassins.\n'
+'assassin 1 is fast but can only kill you when once they are right next to you\n'
+'assassin 2 is slower but can shoot and kill you within the range of 5 miles\n')
 
-# Open up a window.
-# From the "arcade" library, use a function called "open_window"
-# Set the window title to "Drawing Example"
-# Set the dimensions (width and height)
-arcade.open_window(600, 600, "Drawing Example")
+print('To survive, read carefully: \n'
+'1. you must outrun the assassins on your horse, Roach, and get to the magic forest at the edge of the kingdom.'
+'2. There, you will be safe. There are 150 miles in the kingdom. Get to the forest without being killed. \n'
+'3. If it rains, you will not go as quickly.\n'
+'4. If Roach dies, you can run on foot. You are slower than Roach. \n'
+'5. The assassins move at different speeds, and have different ways of killing you. \n'
+'6. You will get hungry, and if you starve, you will obviously die. So be careful. \n'
+'7. Since I, the creator of the game, understand the cruel nature of my audience, you can attack people \n'
+'8. If you kill too many people (12 or more), your wizard clan will banish you. Have morals.\n'
+'Good luck.\n ')
 
-# Set the background color
-arcade.set_background_color(arcade.csscolor.SKY_BLUE)
+milesTraveled = 0
+hunger = 0
+food = 3
+roachExhaustion = 0
+assassin1Distance = 20
+assassin2Distance = 20
+assassin3Distance = 20
+weather = 0
+chest = 0
+spells = 3
+speedBump = 0
+killCount = 0
 
-# Get ready to draw
-arcade.start_render()
 
-# Draw a rectangle
-# Left of 0, right of 599
-# Top of 300, bottom of 0
-arcade.draw_lrtb_rectangle_filled(0, 599, 300, 0, arcade.csscolor.GREEN)
+def assassin_distance():
+    import arcade
 
-# Tree trunk
-arcade.draw_rectangle_filled(100, 320, 20, 60, arcade.csscolor.SIENNA)
+    arcade.open_window(600, 600, "Drawing Example")
 
-# Tree top
-arcade.draw_circle_filled(100, 350, 30, arcade.csscolor.DARK_GREEN)
+    arcade.set_background_color(arcade.csscolor.SKY_BLUE)
 
-# Another tree, with a trunk and ellipse for top
-arcade.draw_rectangle_filled(200, 320, 20, 60, arcade.csscolor.SIENNA)
-arcade.draw_ellipse_filled(200, 370, 60, 80, arcade.csscolor.DARK_GREEN)
+    arcade.start_render()
 
-# Another tree, with a trunk and arc for top
-# Arc is centered at (300, 340) with a width of 60 and height of 100.
-# The starting angle is 0, and ending angle is 180.
-arcade.draw_rectangle_filled(300, 320, 20, 60, arcade.csscolor.SIENNA)
-arcade.draw_arc_filled(300, 340, 60, 100, arcade.csscolor.DARK_GREEN, 0, 180)
+    arcade.draw_rectangle_filled(200, 100, 400, 200, arcade.csscolor.GREY)
+    arcade.draw_rectangle_filled(500, 100, 400, 200, arcade.csscolor.GREY)
+    arcade.draw_rectangle_filled(200, 100, 300, 500, arcade.csscolor.GREY)
+    arcade.draw_rectangle_filled(50, 50, 50, 50, arcade.csscolor.BLACK)
+    arcade.draw_rectangle_filled(50, 150, 50, 50, arcade.csscolor.BLACK)
+    arcade.draw_rectangle_filled(250, 50, 50, 50, arcade.csscolor.BLACK)
+    arcade.draw_rectangle_filled(350, 50, 50, 50, arcade.csscolor.BLACK)
+    arcade.draw_rectangle_filled(450, 50, 50, 50, arcade.csscolor.BLACK)
+    arcade.draw_rectangle_filled(550, 50, 50, 50, arcade.csscolor.BLACK)
+    arcade.draw_rectangle_filled(100, 250, 50, 50, arcade.csscolor.BLACK)
+    arcade.draw_rectangle_filled(200, 250, 50, 50, arcade.csscolor.BLACK)
+    arcade.draw_rectangle_filled(100, 325, 50, 50, arcade.csscolor.BLACK)
+    arcade.draw_rectangle_filled(200, 325, 50, 50, arcade.csscolor.BLACK)
+    arcade.draw_rectangle_filled(300, 325, 50, 50, arcade.csscolor.BLACK)
+    arcade.draw_rectangle_filled(300, 250, 50, 50, arcade.csscolor.BLACK)
+    arcade.draw_rectangle_filled(250, 150, 50, 50, arcade.csscolor.BLACK)
+    arcade.draw_rectangle_filled(350, 150, 50, 50, arcade.csscolor.BLACK)
+    arcade.draw_rectangle_filled(450, 150, 50, 50, arcade.csscolor.BLACK)
+    arcade.draw_rectangle_filled(550, 150, 50, 50, arcade.csscolor.BLACK)
+    arcade.draw_rectangle_filled(150, 50, 100, 250, arcade.csscolor.WHITE)
+    arcade.draw_circle_outline(175, 75, 15, arcade.csscolor.BLACK)
 
-# Another tree, with a trunk and triangle for top
-# Triangle is made of these three points:
-# (400, 400), (370, 320), (430, 320)
-arcade.draw_rectangle_filled(400, 320, 20, 60, arcade.csscolor.SIENNA)
-arcade.draw_triangle_filled(400, 400, 370, 320, 430, 320, arcade.csscolor.DARK_GREEN)
-
-# Draw a tree using a polygon with a list of points
-arcade.draw_rectangle_filled(500, 320, 20, 60, arcade.csscolor.SIENNA)
-arcade.draw_polygon_filled(((500, 400),
-                            (480, 360),
-                            (470, 320),
-                            (530, 320),
-                            (520, 360)
-                            ),
-                           arcade.csscolor.DARK_GREEN)
-
-# Draw a sun
-arcade.draw_circle_filled(500, 550, 40, arcade.color.YELLOW)
-
-# Rays to the left, right, up, and down
-arcade.draw_line(500, 550, 400, 550, arcade.color.YELLOW, 3)
-arcade.draw_line(500, 550, 600, 550, arcade.color.YELLOW, 3)
-arcade.draw_line(500, 550, 500, 450, arcade.color.YELLOW, 3)
-arcade.draw_line(500, 550, 500, 650, arcade.color.YELLOW, 3)
-
-# Diagonal rays
-arcade.draw_line(500, 550, 550, 600, arcade.color.YELLOW, 3)
-arcade.draw_line(500, 550, 550, 500, arcade.color.YELLOW, 3)
-arcade.draw_line(500, 550, 450, 600, arcade.color.YELLOW, 3)
-arcade.draw_line(500, 550, 450, 500, arcade.color.YELLOW, 3)
-
-# Draw text at (150, 230) with a font size of 24 pts.
-arcade.draw_text("Arbor Day - Plant a Tree!",
-                 150, 230,
-                 arcade.color.BLACK, 24)
-
-# Finish drawing
-arcade.finish_render()
-
-# Keep the window up until someone closes it.
-arcade.run()
+    arcade.finish_render()
+    arcade.run()
